@@ -13,3 +13,8 @@ int Game::Check(int result)
 		if (result == 0)
 			return 0;
 }
+
+int Game::Initialize()
+{
+	return 1;
+}
