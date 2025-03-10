@@ -9,12 +9,17 @@ Game::Game()
 
 int Game::Check(int result)
 {
-	//todo: Добавить имплементацию и сложную игровую логику
-	if (result == 1)
+	if (result > 0)
+	{
+		for (int i = 0; i < SIZE - 1; i++)
+		{
+			if (elements[i] > 0 && elements[i] != i + 1)
+				return 0;
+		}
 		return 1;
+	}
 	else
-		if (result == 0)
-			return 0;
+		return 0;
 }
 
 int Game::Initialize()
