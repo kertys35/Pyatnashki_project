@@ -24,3 +24,11 @@ TEST_CASE("Check_win_lose_condition")
 	int check = game->Check(0);
 	REQUIRE(check == 0);
 }
+TEST_CASE("Test_Game_Initialization")
+{
+	Game* game = new Game();
+	int check = game->Initialize();
+	REQUIRE(check == 1);
+}
+
+
