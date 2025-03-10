@@ -1,4 +1,2 @@
-﻿  Tests.cpp
-  Tests_Code.cpp
-C:\Users\Papa\Desktop\Тестирование программ\Pyatnashki_project\Tests\Tests_Code.cpp(2,10): fatal error C1083: Не удается открыть файл включение: Game.cpp: No such file or directory,
-  Создание кода...
+﻿  Tests_Code.cpp
+  Tests.vcxproj -> C:\Users\Papa\Desktop\Тестирование программ\Pyatnashki_project\Pyatnashki_project\Debug\Tests.exe
