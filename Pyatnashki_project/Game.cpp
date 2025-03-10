@@ -19,7 +19,13 @@ int Game::Check(int result)
 
 int Game::Initialize()
 {
-	//todo: ƒобавить начальные значени€ параметров игры
+	//«аполнени€ плиток пол€
+	for (int i = 0; i < SIZE - 1; i++)
+		elements[i] = i + 1;
+	//”становка пустой плитки в конце дл€ тестировани€
+	empty_spot = SIZE - 1;
+	elements[empty_spot] = 0;
+	solved = 1;
 	return 1;
 }
 
