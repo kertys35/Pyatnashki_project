@@ -33,6 +33,6 @@ TEST_CASE("Test_Movement")
 {
 	Game* game = new Game();
 	int left = 0;
-	int check = game->move(left);
+	int check = game->Move(left);
 	REQUIRE(check == 1);
 }
