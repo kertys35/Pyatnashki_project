@@ -1,4 +1,12 @@
 #include "Game.h"
-Game::Game() {
 
+Game::Game()
+{
+
+}
+
+int Game::Check(int result)
+{
+	if (result == 1)
+		return 1;
 }

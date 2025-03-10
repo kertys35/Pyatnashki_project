@@ -3,5 +3,6 @@ class Game
 {
 public:
 	Game();
+	int Check(int result);
 };
 
