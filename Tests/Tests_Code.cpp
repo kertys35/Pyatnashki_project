@@ -14,5 +14,6 @@ TEST_CASE("Create_Game_Object")
 TEST_CASE("Check_win_condition")
 {
 	Game* game = new Game();
-	REQUIRE(game.Check(1) == 1);
+	int check = game->Check(1);
+	REQUIRE(check == 1);
 }
