@@ -7,6 +7,7 @@
 #define UP 2
 #define DOWN 3						
 //Параметры поля
+#define SIZE_LINE 4					//Размер элементов в столбцах и строках
 #define SIZE 16						//Размер поля в плитках
 #define FIELD_SIZE 500;				// Размер игрового поля в пикселях
 #define CELL_SIZE 120;				// Размер плитки в пикселях

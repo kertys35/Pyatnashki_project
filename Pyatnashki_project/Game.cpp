@@ -36,8 +36,30 @@ int Game::Initialize()
 
 int Game::Move(int direction)
 {
-	//todo сделать движение во все стороны
-	//todo сделать движение исходя из положения плиток
-	int start = 1;
-	return start + direction;
+	int column = empty_spot % SIZE_LINE;
+	int row = empty_spot / SIZE_LINE;
+
+	int move_spot = -1;
+	if (direction == LEFT && column > 0)
+		move_spot = empty_spot - 1;
+
+	if (direction == RIGHT && column < (SIZE_LINE-1))
+		move_spot = empty_spot + 1;
+
+	if (direction == UP && row > 0)
+		move_spot = empty_spot - SIZE_LINE;
+
+	if (direction == DOWN && row < (SIZE_LINE - 1))
+		move_spot = empty_spot + SIZE_LINE;
+
+	int temp;
+	if (empty_spot >= 0 && move_spot >= 0)
+	{
+		temp = elements[empty_spot];
+		elements[empty_spot] = elements[move_spot];
+		elements[move_spot] = temp;
+		empty_spot = move_spot;
+	}
+	solved = Check(1);
+	return empty_spot;
 }
