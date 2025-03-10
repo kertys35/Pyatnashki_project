@@ -1,4 +1,3 @@
 ﻿  Tests_Code.cpp
-C:\Users\Papa\Desktop\Тестирование программ\Pyatnashki_project\Tests\Tests_Code.cpp(17,2): error C2228: выражение слева от ".Check" должно представлять класс, структуру или объединение
-C:\Users\Papa\Desktop\Тестирование программ\Pyatnashki_project\Tests\Tests_Code.cpp(17,2): message : тип: Game *
-C:\Users\Papa\Desktop\Тестирование программ\Pyatnashki_project\Tests\Tests_Code.cpp(17,2): message : возможно, имеется в виду "->"
+C:\Users\Papa\Desktop\Тестирование программ\Pyatnashki_project\Pyatnashki_project\Game.cpp(12): warning C4715: Game::Check: значение возвращается не при всех путях выполнения
+  Tests.vcxproj -> C:\Users\Papa\Desktop\Тестирование программ\Pyatnashki_project\Pyatnashki_project\Debug\Tests.exe

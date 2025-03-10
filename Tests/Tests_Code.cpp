@@ -17,3 +17,10 @@ TEST_CASE("Check_win_condition")
 	int check = game->Check(1);
 	REQUIRE(check == 1);
 }
+
+TEST_CASE("Check_win_lose_condition")
+{
+	Game* game = new Game();
+	int check = game->Check(0);
+	REQUIRE(check == 0);
+}
