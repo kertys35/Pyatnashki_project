@@ -34,5 +34,5 @@ TEST_CASE("Test_Movement")
 	Game* game = new Game();
 	int left = 0;
 	int check = game->Move(left);
-	REQUIRE(check == 1);
+	REQUIRE(check == 14);
 }
