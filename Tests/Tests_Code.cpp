@@ -1,6 +1,5 @@
 #include "catch.hpp"
 #include"Game.cpp"
-
 #include <iostream>
 
 
@@ -30,5 +29,10 @@ TEST_CASE("Test_Game_Initialization")
 	int check = game->Initialize();
 	REQUIRE(check == 1);
 }
-
-
+TEST_CASE("Test_Movement")
+{
+	Game* game = new Game();
+	int left = 0;
+	int check = game->move(left);
+	REQUIRE(check == 1);
+}
