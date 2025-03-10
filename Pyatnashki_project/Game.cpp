@@ -2,7 +2,9 @@
 
 Game::Game()
 {
-	//ƒобавить загрузку изначальных параметров
+	font.loadFromFile("Times New Roman.ttf");
+	font.getInfo();
+	Initialize();
 }
 
 int Game::Check(int result)
