@@ -29,10 +29,21 @@ TEST_CASE("Test_Game_Initialization")
 	int check = game->Initialize();
 	REQUIRE(check == 1);
 }
-TEST_CASE("Test_Movement")
+TEST_CASE("Test_Movement_Left")
 {
 	Game* game = new Game();
 	int left = 0;
 	int check = game->Move(left);
 	REQUIRE(check == 14);
 }
+TEST_CASE("Test_Movement_Right")
+{
+	Game* game = new Game();
+	int right = 1;
+	int left = 0;
+	game->Move(left);
+	int check = game->Move(right);
+	REQUIRE(check == 15);
+}
+
+
