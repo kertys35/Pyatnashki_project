@@ -14,8 +14,10 @@ int Game::Check(int result)
 	{
 		for (int i = 0; i < SIZE - 1; i++)
 		{
-			if (elements[i] > 0 && elements[i] != i + 1)
+			if (elements[i] != i + 1)
+			{
 				return 0;
+			}
 		}
 		return 1;
 	}

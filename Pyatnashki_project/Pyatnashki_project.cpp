@@ -1,4 +1,7 @@
 ﻿#include <iostream>
+#include <ctime>
+#include <cstdlib>
+#include <random>
 #include "Game.h"
 #include "SFML/Graphics.hpp"
 using namespace sf;
@@ -6,14 +9,15 @@ using namespace sf;
 int main()
 {
     //Создание окна
-    RenderWindow window(VideoMode(700,700), L"Пятнашки");
+    RenderWindow window(VideoMode(600,600), L"Пятнашки");
     Event windowEvent;
     Font font;
     font.loadFromFile("Times New Roman.ttf");
     RenderStates state;
-  
+    int seed = time(NULL);
+    srand(seed);
     //Текст с обозначением клавиш
-    Text* text = new Text(L"F1 - Новая игра / Esc - Выход / Стрелочки - Передвижение плиток", font, 25);
+    Text* text = new Text(L"F1 - Новая игра / Esc - Выход / Стрелочки - Передвижение плиток", font, 20);
     text->setFillColor(Color::Cyan);
     text->setPosition(10.0f, 10.0f);
     Game* game = new Game();
@@ -28,40 +32,31 @@ int main()
             //Обработчик нажатия клавиш
             if (windowEvent.type == Event::KeyPressed)
             {
-                switch (windowEvent.key.code)
-                {
-                case Keyboard::Escape:  //Выход
+
+                if (windowEvent.key.code == Keyboard::Escape)   //Выход
                     window.close();
-                    break;
-                case Keyboard::Left:    //Движение влево
+                //Перемещение
+                if (windowEvent.key.code == Keyboard::Left)
                     game->Move(LEFT);
-                    break;
-                case Keyboard::Right:   //Движение вправо
+                if (windowEvent.key.code == Keyboard::Right)
                     game->Move(RIGHT);
-                    break;
-                case Keyboard::Up:      //Движение вверх
+                if (windowEvent.key.code == Keyboard::Up)
                     game->Move(UP);
-                    break;
-                case Keyboard::Down:   //Движение вниз
+                if(windowEvent.key.code == Keyboard::Down)
                     game->Move(DOWN);
-                case Keyboard::F1:      //Новая игра
+                //Новая игра
+                if (windowEvent.key.code == Keyboard::F1)
+                {
                     game->Initialize();
                     counter = 100;
-                    break;
-                default:
-                    break;
                 }
-
             }
         }
         //Случайно заданное поле
-        while(counter > 0)
+        if (counter > 0)
         {
-            srand(time(NULL));
-            int random = rand() % 3;
-            game->Move(random);
+            game->Move((rand() % 3));
             counter--;
-
         }
         window.clear();
         game->Draw(window, state);
