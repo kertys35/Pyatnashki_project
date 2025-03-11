@@ -1,3 +1,2 @@
 ﻿  Tests_Code.cpp
-C:\Users\Papa\Desktop\Тестирование программ\Pyatnashki_project\Tests\Tests_Code.cpp(67,20): error C2039: "Draw": не является членом "Game".
-C:\Users\Papa\Desktop\Тестирование программ\Pyatnashki_project\Pyatnashki_project\Game.h(16): message : см. объявление "Game"
+  Tests.vcxproj -> C:\Users\Papa\Desktop\Тестирование программ\Pyatnashki_project\Pyatnashki_project\Debug\Tests.exe

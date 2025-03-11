@@ -63,3 +63,9 @@ int Game::Move(int direction)
 	solved = Check(1);
 	return empty_spot;
 }
+
+int Game::Draw() 
+{
+	//todo добавить отрисовку игровых элементов
+	return 1;
+}

@@ -25,5 +25,6 @@ public:
 	int Check(int result);
 	int Initialize();
 	int Move(int direction);
+	int Draw();
 };
 
