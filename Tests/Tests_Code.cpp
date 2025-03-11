@@ -61,4 +61,12 @@ TEST_CASE("Test_Movement_Down")
 	int check = game->Move(down);
 	REQUIRE(check == 15);
 }
+TEST_CASE("Test_Game_Draw")
+{
+	Game* game = new Game();
+	int check = game->Draw();
+	REQUIRE(check == 1);
+
+
+}
 
