@@ -64,8 +64,57 @@ int Game::Move(int direction)
 	return empty_spot;
 }
 
-int Game::Draw() 
+int Game::Draw(RenderTarget& target, RenderStates states)
 {
-	//todo добавить отрисовку игровых элементов
-	return 1;
+	states.transform *= transform.getTransform();
+	
+	//Отрисовка рамки
+	float field = FIELD_SIZE;
+	RectangleShape *shape = new RectangleShape(Vector2f(field, field));
+	shape->setOutlineThickness(1.0f);
+	shape->setOutlineColor(Color::Cyan);
+	shape->setFillColor(Color::Transparent);
+
+	target.draw(*shape, states);
+
+	//Отрисовка плиток
+	float rect = RECT_SIZE;
+	shape->setSize(Vector2f(rect, rect));
+	shape->setOutlineColor(Color::Magenta);
+	shape->setOutlineThickness(1.0f);
+	shape->setFillColor(Color::Transparent);
+
+	Text *text = new Text("", font, 45);
+	if (text != NULL)
+	{
+
+
+		for (int i = 0; i < SIZE; i++)
+		{
+			shape->setOutlineColor(Color::Magenta);
+			text->setFillColor(Color::Black);
+			text->setString(std::to_string(elements[i]));
+			if (solved)
+			{
+				text->setFillColor(Color::Green);
+				shape->setOutlineColor(Color::Green);
+			}
+			else
+				if (elements[i] == i + 1)
+				{
+					text->setFillColor(Color::Green);
+				}
+			if (elements[i] > 0)
+			{
+				Vector2f* pos = new Vector2f(i % SIZE_LINE * rect + 10.0f, i / SIZE_LINE * rect + 10.0f);
+				shape->setPosition(*pos);
+				text->setPosition(pos->x + 30.0f, pos->y + 25.0f);
+				target.draw(*shape, states);
+				target.draw(*text, states);
+			}
+		}
+		return 1;
+	}
+	else
+		return 0;
 }

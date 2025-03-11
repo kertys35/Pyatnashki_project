@@ -10,12 +10,13 @@
 #define SIZE_LINE 4					//Размер элементов в столбцах и строках
 #define SIZE 16						//Размер поля в плитках
 #define FIELD_SIZE 500;				// Размер игрового поля в пикселях
-#define CELL_SIZE 120;				// Размер плитки в пикселях
+#define RECT_SIZE 120;				// Размер плитки в пикселях
 using namespace sf;
 
 class Game
 {
 private:
+	Transformable transform;
 	int elements[SIZE];
 	int empty_spot;
 	int solved;
@@ -25,6 +26,6 @@ public:
 	int Check(int result);
 	int Initialize();
 	int Move(int direction);
-	int Draw();
+	int Draw(RenderTarget& target, sf::RenderStates states);
 };
 
