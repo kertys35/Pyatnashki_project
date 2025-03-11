@@ -63,10 +63,17 @@ TEST_CASE("Test_Movement_Down")
 }
 TEST_CASE("Test_Game_Draw")
 {
+	RenderWindow window(VideoMode(600, 600), "Pyatnashki");
+	Font font;
+	font.loadFromFile("Times New Roman.ttf");
+	// Текст с обозначением клавиш
+	Text *text = new Text(L"F1 - Новая игра / Esc - Выход / Стрелочки - Передвижение плиток", font, 25);
+	text->setFillColor(Color::Cyan);
+
+	RenderStates state;
 	Game* game = new Game();
-	int check = game->Draw();
+	int check = game->Draw(window, state);
+	window.draw(*text);
 	REQUIRE(check == 1);
-
-
 }
 
