@@ -4,6 +4,7 @@ Game::Game()
 {
 	font.loadFromFile("Times New Roman.ttf");
 	font.getInfo();
+	transform.setPosition(50.0f, 50.0f);
 	Initialize();
 }
 
@@ -85,6 +86,9 @@ int Game::Draw(RenderTarget& target, RenderStates states)
 	shape->setFillColor(Color::Transparent);
 
 	Text *text = new Text("", font, 45);
+	Text *victory = new Text(L"ÂÛ ÂÛÈÃÐÀËÈ!", font, 40);
+	victory->setFillColor(Color::Cyan);
+	victory->setPosition(100.0f, 500.0f);
 	if (text != NULL)
 	{
 
@@ -92,7 +96,7 @@ int Game::Draw(RenderTarget& target, RenderStates states)
 		for (int i = 0; i < SIZE; i++)
 		{
 			shape->setOutlineColor(Color::Magenta);
-			text->setFillColor(Color::Black);
+			text->setFillColor(Color::Red);
 			text->setString(std::to_string(elements[i]));
 			if (solved)
 			{
@@ -111,6 +115,8 @@ int Game::Draw(RenderTarget& target, RenderStates states)
 				text->setPosition(pos->x + 30.0f, pos->y + 25.0f);
 				target.draw(*shape, states);
 				target.draw(*text, states);
+				if (solved)
+					target.draw(*victory, states);
 			}
 		}
 		return 1;
